@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            .inline{
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="inline">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            <h3>Register</h3>
+            <form action="/processLogReg" method="POST">
+                {% csrf_token %}
+                <p>Name: <input type="text" name="name" value=""></p>
+                <p>Email: <input type="text" name="email" value=""></p>
+                <p>Password: <input type="text" name="password" value=""></p>
+                <p>Confirm Password: <input type="text" name="confirm" value=""></p>
+                <p><input type="submit" name="" value="Register"></p>
+
+            </form>
+        </div>
+        <div class="inline">
+            <h3>Login</h3>
+            <form action='/processLogReg' method="post">
+                {% csrf_token %}
+                <p>Email: <input type="text" name="email" value=""></p>
+                <p>Password: <input type="text" name="password" value=""></p>
+                <input type="submit" name="" value="Login">
+            </form>
+        </div>
+    </body>
+</html>
